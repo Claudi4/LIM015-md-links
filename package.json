@@ -24,8 +24,10 @@
     "url": "https://github.com/Claudi4/LIM015-md-links/issues"
   },
   "homepage": "https://github.com/Claudi4/LIM015-md-links#readme",
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^7.32.0",
-    "jest": "^27.2.0"
+    "jest": "^27.2.0",
+    "nodemon": "^2.0.4"
   }
 }
