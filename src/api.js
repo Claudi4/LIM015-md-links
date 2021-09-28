@@ -41,7 +41,7 @@
   console.log('read file:',readFile(pruebaPath.fileAndMd));//true
 
 
-//LEE ARCHIVOS MD
+//FUNCION LEE ARCHIVOS MD
 const arrayOfFiles = [];
 const getFilesMd = (route) => {
   if(isDirectory(route)) {
@@ -51,16 +51,15 @@ const getFilesMd = (route) => {
     directoryOfArchives.forEach((elem) => {
       const routeElem = elem;
       const newRoute = path.join(route, routeElem);
-      getFilesMd(newRoute);;
+      getFilesMd(newRoute);
       
   })} else if(isFileMd(route)){
     arrayOfFiles.push(route);
   };
   return arrayOfFiles;
 };
-
-
 //console.log('El archivo MD es ---> ', getFilesMd(pruebaPath.absoluta));
+
 
 //lee los enlaces dentro de los archivos MD
 
@@ -95,4 +94,6 @@ console.log(readlinkMd(pruebaPath.fileAndMd))
     isFileMd,
     readDirectory,
     readFile,
+    getFilesMd,
+    readlinkMd
   };
