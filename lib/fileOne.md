@@ -1,10 +1,3 @@
-# ## 1. HOLI BOLI SOY 01 
-
-## Índice
-Holi Boli soy Uno
-- [1. Preámbulo](#1-preámbulo)
-- [2. Resumen del proyecto](#2-resumen-del-proyecto)
-
 ## 1. Preámbulo
 
 [Markdown](https://es.wikipedia.org/wiki/Markdown) es un lenguaje de marcado
