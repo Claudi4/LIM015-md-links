@@ -120,9 +120,6 @@ const validateWithFetch = (link) => {
 };
 validateWithFetch('C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\file noexiste.md').then(response => (console.log(response)));
 
-
-
-
   module.exports = {
     getAbsolutePath,
     isExit,
