@@ -5,13 +5,6 @@
 
   //let prueba = process.argv.slice(2);
   //console.log(prueba,7);
-
-  const pruebaPath = {
-    relativa: 'ib',
-    absoluta: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/',
-    fileAndMd: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/fileOne.md'
-  }
-
   const path = require('path');
   const fs = require('fs');
   const marked = require('marked');
@@ -31,9 +24,18 @@
    
   const readFile = (route) => fs.readFileSync(route, 'utf8');
 
+  /*const pruebaPath = {
+    relativa: 'ib',
+    absoluta: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/',
+    fileAndMd: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/fileOne.md'
+  }
+  const objetoPrueba =   {
+    href: 'https://es.wikipedia.org/wiki/Markdown',
+    text: 'Markdown',
+    route: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/fileOne.md'
+  },*/
 
-
-
+ 
   /*console.log('convert absolute a relative y devuelve absolute:',getAbsolutePath(pruebaPath.relativa)); //true Ruta
   console.log('exit path:',isExit(pruebaPath.absoluta));//true
   console.log( 'is directory :',isDirectory(pruebaPath.absoluta)); //true
@@ -67,9 +69,10 @@ const getFilesMd = (route) => {
 // leer los links de los archivos md dentro de un array de obj
 
 const readlinkMd = (files) => {
+ // console.log(files,72);
   const arrayMdLinks = [];
-  const arrayMd = getFilesMd(files);
-  arrayMd.forEach((route) => {
+  //const arrayMd = getFilesMd(files);
+  files.forEach((route) => {
       const readfilesMd = readFile(route);
       const renderer = new marked.Renderer();
       renderer.link = (url, texto, urlText) => {
@@ -83,18 +86,20 @@ const readlinkMd = (files) => {
       };
       marked(readfilesMd, { renderer});
   });
+  console.log(arrayMdLinks,89);
   return arrayMdLinks;
 };
- console.log(readlinkMd(pruebaPath.fileAndMd))
+ //console.log(readlinkMd(pruebaPath.fileAndMd))
 
 // validar la existencia de los links 
 // fetch
 
 const validateWithFetch = (link) => {
   //console.log(link,95);
-  const linksMd = readlinkMd(link);
+  //const linksMd = readlinkMd(link);
   //console.log(linksMd,95);
-  const validateLinks = linksMd.map((link) => fetch(link.href)
+  //const validateLinks = linksMd.map((link) => fetch(link.href)
+  return fetch(link.href)
   .then((data) => {
     //console.log(data,97);
     if (data.status >= 200 && data.status < 400) {
@@ -115,10 +120,10 @@ const validateWithFetch = (link) => {
     status: err.response.status,
     menssage: 'fail'
   }))
-  );
-  return Promise.all(validateLinks);
+  //return Promise.all(validateLinks);
+ // return (validateLinks);
 };
-validateWithFetch('C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\file noexiste.md').then(response => (console.log(response)));
+//validateWithFetch(objetoPrueba).then(response => (console.log(response)));
 
   module.exports = {
     getAbsolutePath,
