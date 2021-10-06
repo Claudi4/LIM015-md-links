@@ -82,9 +82,6 @@ it('Read  files MD and return an array of object', () => {
 it('Returns to function', () => {
   expect(typeof mdLinks.validateWithFetch).toBe('function');
 });
-it('Read  links of files MD and returnd to array and object', () => {
-  expect(typeof mdLinks.validateWithFetch(pruebaPath.absoluta)).toBe('object');
-});
 it('Debería validar los links OK extraidos', () => {
   //Se crea una variable returnLinks con la cual se comparara la ruta de prueba, para comparar con lo que devuelva.
     const returnLinks = {
@@ -100,22 +97,25 @@ it('Debería validar los links OK extraidos', () => {
       route: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/fileOne.md'
     };
     return mdLinks.validateWithFetch(objetoPrueba).then((res) => {
-      console.log(res,103);
-      console.log(returnLinks,104);
+      //console.log(res,103);
+      //console.log(returnLinks,104);
       expect(res).toEqual(returnLinks)});
 });
 it('Debería validar los links fail extraidos', () => {
   //Se crea una variable returnLinks con la cual se comparara la ruta de prueba, para comparar con lo que devuelva.
-    const returnLinksFail = [
-      {
+    const returnLinksFail = {
         href: 'https://www.instagram.com/p/CFS1ZQqn3Jd/0',
         text: 'Píldora recursión - YouTube Laboratoria Developers',
         route: 'C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\file noexiste.md',
         status: 404,
         ok: 'fail'
-      }
-    ];
-    return mdLinks.validateWithFetch('C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\file noexiste.md').then((res) => {
+      };
+      const returnObjFail = {
+        href: 'https://www.instagram.com/p/CFS1ZQqn3Jd/0',
+        text: 'Píldora recursión - YouTube Laboratoria Developers',
+        route: 'C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\file noexiste.md',
+      };
+    return mdLinks.validateWithFetch(returnObjFail).then((res) => {
       // console.log(res);
       // console.log(returnLinks);
       expect(res).toEqual(returnLinksFail)});
