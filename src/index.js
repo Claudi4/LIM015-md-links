@@ -29,7 +29,7 @@ const mdlinks = (pathh, option) => new Promise((resolve, reject) => {
     }
 });
 
-/*mdlinks(rutaValida, { validate: true })
+mdlinks(rutaValida, { validate: true })
     .then(res => {
         console.log(res);
         return res;
@@ -37,7 +37,7 @@ const mdlinks = (pathh, option) => new Promise((resolve, reject) => {
     })
     .catch(error => {
         console.log('ERROR: ' + error);
-    })*/
+    })
 
 module.exports = {
     mdlinks,

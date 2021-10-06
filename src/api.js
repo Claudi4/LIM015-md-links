@@ -27,12 +27,12 @@
     relativa: 'ib',
     absoluta: 'C:/Users/boratoria/Documents/GitHub/LIM015-md-links/lib/',
     fileAndMd: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/fileOne.md'
-  }
+  };
   const objetoPrueba =   {
     href: 'https://es.wikipedia.org/wiki/Markdown',
     text: 'Markdown',
     route: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/fileOne.md'
-  },*/
+  };*/
 
  
   /*console.log('convert absolute a relative y devuelve absolute:',getAbsolutePath(pruebaPath.relativa)); //true Ruta
@@ -68,7 +68,7 @@ const getFilesMd = (route) => {
 // leer los links de los archivos md dentro de un array de obj
 
 const readlinkMd = (files) => {
- // console.log(files,72);
+ //console.log(files,72);
   const arrayMdLinks = [];
   //const arrayMd = getFilesMd(files);
   files.forEach((route) => {
@@ -88,7 +88,7 @@ const readlinkMd = (files) => {
   //console.log(arrayMdLinks,89);
   return arrayMdLinks;
 };
- //console.log(readlinkMd(pruebaPath.fileAndMd))
+ //console.log(readlinkMd(pruebaPath.fileAndMd),91)
 
 // validar la existencia de los links 
 // fetch

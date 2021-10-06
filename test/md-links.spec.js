@@ -1,4 +1,5 @@
 const mdLinks = require('../src/api.js');
+const option = require('../src/option.js');
 
 const pruebaPath = {
   relativa: 'ib',
@@ -71,9 +72,9 @@ describe('API', () => {
 it('Returns to function', () => {
   expect(typeof mdLinks.readlinkMd).toBe('function');
 });
-  it('Read  files MD and returnd to array and object', () => {
-    expect(typeof mdLinks.readlinkMd(pruebaPath.fileAndMd)).toBe('object');
-  });
+it('Read  files MD and return an array of object', () => {
+  expect(typeof mdLinks.readlinkMd( mdLinks.getFilesMd(pruebaPath.fileAndMd))).toBe('object');
+});
 
 
 //FUNCION VALIDAR CON FETCH 
@@ -81,44 +82,100 @@ it('Returns to function', () => {
 it('Returns to function', () => {
   expect(typeof mdLinks.validateWithFetch).toBe('function');
 });
-  it('Read  links of files MD and returnd to array and object', () => {
-    expect(typeof mdLinks.validateWithFetch(pruebaPath.absoluta)).toBe('object');
-  });
-  it('Debería validar los links OK extraidos', () => {
-    //Se crea una variable returnLinks con la cual se comparara la ruta de prueba, para comparar con lo que devuelva.
-      const returnLinks = [
-        {
-          href: 'https://nodejs.org/docs/latest/api/modules.html',
-          text: 'Modules: CommonJS modules - Node.js Docs',
-          route: 'C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\fileTreeTwo.md',
-          status: 200,
-          ok: 'ok'
-        }
-      ];
-
-      return mdLinks.validateWithFetch('C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\fileTreeTwo.md').then((res) => {
-        // console.log(res);
-        // console.log(returnLinks);
-        expect(res).toEqual(returnLinks)});
-    });
-    it('Debería validar los links fail extraidos', () => {
-      //Se crea una variable returnLinks con la cual se comparara la ruta de prueba, para comparar con lo que devuelva.
-        const returnLinksFail = [
-          {
-            href: 'https://www.instagram.com/p/CFS1ZQqn3Jd/0',
-            text: 'Píldora recursión - YouTube Laboratoria Developers',
-            route: 'C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\file noexiste.md',
-            status: 404,
-            ok: 'fail'
-          }
-        ];
-  
-        return mdLinks.validateWithFetch('C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\file noexiste.md').then((res) => {
-          // console.log(res);
-          // console.log(returnLinks);
-          expect(res).toEqual(returnLinksFail)});
-      });
-
+it('Read  links of files MD and returnd to array and object', () => {
+  expect(typeof mdLinks.validateWithFetch(pruebaPath.absoluta)).toBe('object');
+});
+it('Debería validar los links OK extraidos', () => {
+  //Se crea una variable returnLinks con la cual se comparara la ruta de prueba, para comparar con lo que devuelva.
+    const returnLinks = {
+      href: 'https://es.wikipedia.org/wiki/Markdown',
+      text: 'Markdown',
+      route: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/fileOne.md',
+      status: 200,
+      ok: 'ok'
+    };
+    const objetoPrueba =   {
+      href: 'https://es.wikipedia.org/wiki/Markdown',
+      text: 'Markdown',
+      route: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/fileOne.md'
+    };
+    return mdLinks.validateWithFetch(objetoPrueba).then((res) => {
+      console.log(res,103);
+      console.log(returnLinks,104);
+      expect(res).toEqual(returnLinks)});
+});
+it('Debería validar los links fail extraidos', () => {
+  //Se crea una variable returnLinks con la cual se comparara la ruta de prueba, para comparar con lo que devuelva.
+    const returnLinksFail = [
+      {
+        href: 'https://www.instagram.com/p/CFS1ZQqn3Jd/0',
+        text: 'Píldora recursión - YouTube Laboratoria Developers',
+        route: 'C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\file noexiste.md',
+        status: 404,
+        ok: 'fail'
+      }
+    ];
+    return mdLinks.validateWithFetch('C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\file noexiste.md').then((res) => {
+      // console.log(res);
+      // console.log(returnLinks);
+      expect(res).toEqual(returnLinksFail)});
 });
 
-//FUNCION VALIDAR CON MDLINKS
+
+//ejemplo 
+const arrayEnlaces = [
+  {
+    href: 'https://www.google.com/',
+    text: 'Adios',
+    ruta: 'D:\\LABORATORIA2021\\LIM015-md-links\\example\\new\\ejemplo\\modelo.md',
+    status: 200,
+    menssage: 'OK'
+  },
+  {
+    href: 'https://www.google.com/',
+    text: 'Otra cosa',
+    ruta: 'D:\\LABORATORIA2021\\LIM015-md-links\\example\\new\\ejemplo\\modelo.md',
+    status: 200,
+    menssage: 'OK'
+  },
+  {
+    href: 'https://www.instagram.com/p/CFS1ZQqn3Jd/0',
+    text: 'Adios',
+    ruta: 'D:\\LABORATORIA2021\\LIM015-md-links\\example\\new\\ejemplo\\modelo.md',
+    status: 404,
+    menssage: 'FAIL'
+  },
+  {
+    href: 'https://www.instagram.com/',
+    text: 'Adios',
+    ruta: 'D:\\LABORATORIA2021\\LIM015-md-links\\example\\new\\ejemplo\\modelo.md',
+    status: 200,
+    menssage: 'OK'
+  },
+];
+
+//FUNCION VALIDAR liks unicos 
+it('Retorna function para la funcion enlacesUnicos', () => {
+  expect(typeof option.uniqueLinks).toBe('function');
+});
+it('Lee los link unicos y devuelve un string con la cantidad', () => {
+  expect(typeof option.uniqueLinks(arrayEnlaces)).toBe('string');
+});
+
+// funcion links rotos
+it('Retorna function para la funcion enlacesRotos', () => {
+  expect(typeof option.brokenLink).toBe('function');
+});
+it('Lee los link rotos y devuelve un string con la cantidad', () => {
+  expect(typeof option.brokenLink(arrayEnlaces)).toBe('string');
+});
+
+// funcion links totales
+it('Retorna function para la funcion totalEnlaces', () => {
+  expect(typeof option.totalLink).toBe('function');
+});
+it('Lee el total de los link y devuelve un string con la cantidad', () => {
+  expect(typeof option.totalLink(arrayEnlaces)).toBe('string');
+});
+
+});
