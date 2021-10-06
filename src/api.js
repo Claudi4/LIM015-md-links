@@ -3,13 +3,12 @@
     // ...
   };*/
 
-  //let prueba = process.argv.slice(2);
-  //console.log(prueba,7);
   const path = require('path');
   const fs = require('fs');
   const marked = require('marked');
   const fetch = require('node-fetch');
-
+  
+//funciones independientes 
   const getAbsolutePath = (file) => (path.isAbsolute(file) ? file : path.resolve(file));//if
 
   const  isExit = (route) => fs.existsSync(route);//no se esta usando por ahora hehehe
@@ -26,7 +25,7 @@
 
   /*const pruebaPath = {
     relativa: 'ib',
-    absoluta: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/',
+    absoluta: 'C:/Users/boratoria/Documents/GitHub/LIM015-md-links/lib/',
     fileAndMd: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/fileOne.md'
   }
   const objetoPrueba =   {
@@ -86,7 +85,7 @@ const readlinkMd = (files) => {
       };
       marked(readfilesMd, { renderer});
   });
-  console.log(arrayMdLinks,89);
+  //console.log(arrayMdLinks,89);
   return arrayMdLinks;
 };
  //console.log(readlinkMd(pruebaPath.fileAndMd))
