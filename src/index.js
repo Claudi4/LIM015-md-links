@@ -10,10 +10,7 @@ const mdlinks = (pathh, option) => new Promise((resolve, reject) => {
     const pathValidate = api.getAbsolutePath(pathh);
     if (api.isExit(pathValidate)) {
         const searchPath = api.getFilesMd(pathValidate); // retorna array de .md
-        //console.log(searchPath,13);
         const getLinks = api.readlinkMd(searchPath); // retorna el array de objeto de links con 03 propiedades
-        //console.log(getLinks,13);
-        //console.log(searchPath,14);
         if (getLinks.length === 0) {
             reject('error')
         } else {
@@ -31,7 +28,6 @@ const mdlinks = (pathh, option) => new Promise((resolve, reject) => {
 
 mdlinks(rutaValida, { validate: true })
     .then(res => {
-        console.log(res);
         return res;
         
     })

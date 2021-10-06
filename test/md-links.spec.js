@@ -97,8 +97,6 @@ it('Debería validar los links OK extraidos', () => {
       route: 'C:/Users/Laboratoria/Documents/GitHub/LIM015-md-links/lib/fileOne.md'
     };
     return mdLinks.validateWithFetch(objetoPrueba).then((res) => {
-      //console.log(res,103);
-      //console.log(returnLinks,104);
       expect(res).toEqual(returnLinks)});
 });
 it('Debería validar los links fail extraidos', () => {
@@ -116,8 +114,6 @@ it('Debería validar los links fail extraidos', () => {
         route: 'C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\file noexiste.md',
       };
     return mdLinks.validateWithFetch(returnObjFail).then((res) => {
-      // console.log(res);
-      // console.log(returnLinks);
       expect(res).toEqual(returnLinksFail)});
 });
 
