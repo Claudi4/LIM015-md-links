@@ -78,10 +78,7 @@ manera a través de la **terminal**:
 Por ejemplo:
 
 ```sh
-$ md-links ./some/example.md
-./some/example.md http://algo.com/2/3/ Link a algo
-./some/example.md https://otra-cosa.net/algun-doc.html algún doc
-./some/example.md http://google.com/ Google
+
 ```
 
 El comportamiento por defecto no debe validar si las URLs responden ok o no,
@@ -90,8 +87,8 @@ argumento), analizar el archivo Markdown e imprimir los links que vaya
 encontrando, junto con la ruta del archivo donde aparece y el texto
 que hay dentro del link (truncado a 50 caracteres).
 
-#### Options
-
+#### Opti!
+[Captura de 3](https://user-images.githubusercontent.com/85045325/136302368-6e4b7076-2b97-4ba8-ba1c-d41ff6055483.png)
 ##### `--validate`
 
 Si pasamos la opción `--validate`, el módulo debe hacer una petición HTTP para
@@ -101,10 +98,7 @@ URL que responde ok, entonces consideraremos el link como ok.
 Por ejemplo:
 
 ```sh
-$ md-links ./some/example.md --validate
-./some/example.md http://algo.com/2/3/ ok 200 Link a algo
-./some/example.md https://otra-cosa.net/algun-doc.html fail 404 algún doc
-./some/example.md http://google.com/ ok 301 Google
+![5 propiedades](https://user-images.githubusercontent.com/85045325/136302442-be0165cb-811e-4de8-9b4c-bd1a4094cc88.png)
 ```
 
 Vemos que el _output_ en este caso incluye la palabra `ok` o `fail` después de
@@ -117,19 +111,14 @@ Si pasamos la opción `--stats` el output (salida) será un texto con estadísti
 básicas sobre los links.
 
 ```sh
-$ md-links ./some/example.md --stats
-Total: 3
-Unique: 3
+![capturastats](https://user-images.githubusercontent.com/85045325/136302479-9731288f-d33b-450c-9525-2a6da0c0d9a8.png)
 ```
 
 También podemos combinar `--stats` y `--validate` para obtener estadísticas que
 necesiten de los resultados de la validación.
 
 ```sh
-$ md-links ./some/example.md --stats --validate
-Total: 3
-Unique: 3
-Broken: 1
+![validate and status](https://user-images.githubusercontent.com/85045325/136302543-6d1c4ff0-f82d-4357-9f95-d817590d9abc.png)
 ```
 
 
