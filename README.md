@@ -77,9 +77,7 @@ manera a través de la **terminal**:
 
 Por ejemplo:
 
-```sh
-
-```
+[Captura de 3](https://user-images.githubusercontent.com/85045325/136302368-6e4b7076-2b97-4ba8-ba1c-d41ff6055483.png)
 
 El comportamiento por defecto no debe validar si las URLs responden ok o no,
 solo debe identificar el archivo markdown (a partir de la ruta que recibe como
@@ -88,7 +86,7 @@ encontrando, junto con la ruta del archivo donde aparece y el texto
 que hay dentro del link (truncado a 50 caracteres).
 
 #### Opti!
-[Captura de 3](https://user-images.githubusercontent.com/85045325/136302368-6e4b7076-2b97-4ba8-ba1c-d41ff6055483.png)
+
 ##### `--validate`
 
 Si pasamos la opción `--validate`, el módulo debe hacer una petición HTTP para
