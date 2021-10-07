@@ -97,9 +97,7 @@ URL que responde ok, entonces consideraremos el link como ok.
 
 Por ejemplo:
 
-```sh
 ![5 propiedades](https://user-images.githubusercontent.com/85045325/136302442-be0165cb-811e-4de8-9b4c-bd1a4094cc88.png)
-```
 
 Vemos que el _output_ en este caso incluye la palabra `ok` o `fail` después de
 la URL, así como el status de la respuesta recibida a la petición HTTP a dicha
@@ -110,16 +108,15 @@ URL.
 Si pasamos la opción `--stats` el output (salida) será un texto con estadísticas
 básicas sobre los links.
 
-```sh
+
 ![capturastats](https://user-images.githubusercontent.com/85045325/136302479-9731288f-d33b-450c-9525-2a6da0c0d9a8.png)
-```
 
 También podemos combinar `--stats` y `--validate` para obtener estadísticas que
 necesiten de los resultados de la validación.
 
-```sh
+
 ![validate and status](https://user-images.githubusercontent.com/85045325/136302543-6d1c4ff0-f82d-4357-9f95-d817590d9abc.png)
-```
+
 
 
 
