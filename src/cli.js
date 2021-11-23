@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const index = require('../src/index.js');
 const option = require('../src/option.js');
 const chalk = require('chalk');
