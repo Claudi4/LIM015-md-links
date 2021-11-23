@@ -2,17 +2,6 @@ const index = require('../src/index.js');
 const option = require('../src/option.js');
 const chalk = require('chalk');
 
-//ejemplo de rutas 
-const rutaValida = 'C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib';
-const rutaNoValida = 'D:/LABORATORIA2021/LIM015-md-links/exam';
-const noHayArchivosMd = 'C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\librarynotfound';
-const archivoMdSinLinks = 'C:\\Users\\Laboratoria\\Documents\\GitHub\\LIM015-md-links\\lib\\library\\libraryTree\\file text.md';
-
-//Para la funcion de CLI Retorna un array con los argvs pasados en la linea de comandos,
-//-Primero sera el ejecutable node -> md-links en la posicion [0]
-//-Segundo sera la ruta del ejecutable -> 'D:/LABORATORIA2021/LIM015-md-links/example' en la posicion[1]
-//-Tercero sera los argumentos que el usuario le pase a mi funcion -> --stats o --validate en la posicion [2]
-
 const argmt = process.argv.slice(2) //contiene la ruta llamada en el siguiente orden  ['node', 'md-links', 'd:/ruta']
 
 const cli = (argmt) => {

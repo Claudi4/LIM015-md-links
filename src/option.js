@@ -49,7 +49,7 @@ const brokenLink = (obj) => {
 
 // Función cantidad de links totales
 const totalLink = (obj) => {
-    const total = obj.map(link => link.href); // array de enlaces
+    const total = obj.map(link => link.href); // array de enlaces mapoea y encuentra los href de mi
     const totalLink = `\nTotal: ${total.length}`;
     return totalLink;
 };
